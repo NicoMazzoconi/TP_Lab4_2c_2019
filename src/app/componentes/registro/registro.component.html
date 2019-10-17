@@ -1,0 +1,35 @@
+<div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+    
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="../../../assets/Imagenes/people.png" id="icon" alt="User Icon" />
+            </div>
+    
+            <!-- Login Form -->
+            <form>
+                <input type="text" id="login" class="fadeIn second" name="registro" placeholder="Email" [(ngModel)]='email'>
+                <input type="password" id="password" class="fadeIn third" name="registro" placeholder="Password" [(ngModel)]='password'>
+                <select name="registro" id="tipo" class="fadeIn select" [(ngModel)]='tipo'>
+                    <option value="bartender">bartender</option>
+                    <option value="cerveceros">cerveceros</option>
+                    <option value="cocineros">cocineros</option>
+                    <option value="mozos">mozos</option>
+                    <option value="socios">socios</option>
+                    <option value="cliente">cliente</option>
+                </select>
+                <br>
+                <input type="submit" class="fadeIn fourth" value="Registrarse" (click)='registro()'>
+            </form>
+    
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="underlineHover">Olvide mi password</a>
+            </div>
+            <div id="formFooter">
+                <a class="underlineHover" href="./Registro">Registrarse</a>
+            </div>
+    
+        </div>
+    </div>
