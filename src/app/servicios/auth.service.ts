@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import * as firebase from 'firebase';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -32,5 +34,9 @@ export class AuthService {
         rejected(err);
       });
     });
+  }
+
+  traerMesas() {
+    return firebase.firestore().collection('mesas').get();
   }
 }

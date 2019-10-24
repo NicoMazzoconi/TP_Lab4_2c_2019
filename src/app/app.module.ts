@@ -10,15 +10,21 @@ import { AngularFireModule } from '@angular/fire'
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HomeComponent } from './componentes/home/home.component';
 import { FormsModule } from '@angular/forms';
-import { AngularFirestore } from '@angular/fire/firestore'
+import { AngularFirestore } from '@angular/fire/firestore';
+import { MesaListadoComponent } from './componentes/mesa-listado/mesa-listado.component'
+ 
+import { RecaptchaModule } from 'ng-recaptcha';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistroComponent,
-    HomeComponent
+    HomeComponent,
+    MesaListadoComponent
   ],
   imports: [
+    RecaptchaModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp({

@@ -38,8 +38,25 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" (click)='desconectarse()'>Cerrar Sesion</a>
+                <a class="nav-link">Cerrar Sesion</a>
             </li>
         </div>
     </div>
 </nav>
+<table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Numero</th>
+        <th>Codigo</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of mesas">
+        <td>{{item.numero}}</td> 
+        <td>{{item.codigo}}</td> 
+        <td>{{item.estado}}</td> 
+      </tr>
+     
+    </tbody>
+  </table>

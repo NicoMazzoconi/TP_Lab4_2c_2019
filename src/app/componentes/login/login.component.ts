@@ -21,4 +21,8 @@ export class LoginComponent implements OnInit {
     }).catch(err => alert('Error en los datos'));
   }
 
+  resolved(captchaResponse: string){
+    document.getElementById('boton').setAttribute('disable', 'false');
+  }
+
 }
