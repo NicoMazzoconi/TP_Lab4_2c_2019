@@ -1,0 +1,23 @@
+
+<h1>Estas son las mesas disponibles</h1>
+
+<table class="table table-dark" id="tabla" >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Codigo</th>
+       
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mesa of mesas">
+          <td>{{mesa.id}}</td>
+          <td>{{mesa.estado}}</td>
+          <td>{{mesa.codigo}}</td>
+         
+        </tr>
+       
+    </tbody>
+  </table>

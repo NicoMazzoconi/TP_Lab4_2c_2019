@@ -1,0 +1,23 @@
+<h3>La carta:</h3>
+
+<table class="table table-dark" id="tabla" >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">descripcion</th>
+        <th scope="col">precio</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let carta of laCarta">
+          <td>{{carta.id}}</td>
+          <td>{{carta.nombre}}</td>
+          <td>{{carta.descripcion}}</td>
+          <td>{{carta.precio}}</td>
+        </tr>
+       
+    </tbody>
+  </table>

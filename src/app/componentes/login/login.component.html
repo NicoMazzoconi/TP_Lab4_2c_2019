@@ -4,23 +4,32 @@
 
         <!-- Icon -->
         <div class="fadeIn first">
-            <img src="./assets/Imagenes/people.png" id="icon" alt="User Icon" />
+            <img src="./assets/people.png" id="icon" alt="User Icon" />
         </div>
 
         <!-- Login Form -->
         <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Email" [(ngModel)]='email'>
-            <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" [(ngModel)]='password'>
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Nombre" [(ngModel)]='nombreUsuario'>
+            <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" [(ngModel)]='passUsuario'>
             <re-captcha id='re' (resolved)="resolved($event)" siteKey="6LceN78UAAAAAEDiVlhrxpzbQOSQkwELnAsncII3"></re-captcha>
-            <input id='boton' type="submit" class="fadeIn fourth" value="Log In" (click)='logIn()' disabled='true'>  
+            <input id='boton' type="submit" class="fadeIn fourth" value="Log In" (click)='entrar()' disabled='true'>  
         </form>
         <!-- Remind Passowrd -->
         <div id="formFooter">
             <a class="underlineHover">Olvide mi password</a>
         </div>
         <div id="formFooter">
-            <a class="underlineHover" href="./Registro">Registrarse</a>
+            <a class="underlineHover" href="./registro">Registrarse</a>
         </div>
 
     </div>
 </div>
+
+<div id='botones'>
+        <button class="btn btn-outline-primary" (click)="completar('cliente')">Cliente</button>
+        <button class="btn btn-outline-primary" (click)="completar('socio')">Admin</button>
+        <button class="btn btn-outline-primary" (click)="completar('cocinero')">Cocinero</button>
+        <button class="btn btn-outline-primary" (click)="completar('mozo')">Mozo</button>
+        <button class="btn btn-outline-primary" (click)="completar('bartender')">BarTender</button>
+</div>
+

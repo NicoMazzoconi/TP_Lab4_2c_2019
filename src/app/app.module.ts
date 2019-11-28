@@ -5,15 +5,45 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
-
-import { AngularFireModule } from '@angular/fire'
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { HomeComponent } from './componentes/home/home.component';
 import { FormsModule } from '@angular/forms';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { MesaListadoComponent } from './componentes/mesa-listado/mesa-listado.component'
- 
-import { RecaptchaModule } from 'ng-recaptcha';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './componentes/home/home.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+//importo mis componentes
+import {RecaptchaModule} from 'ng-recaptcha';
+import { MesasComponent } from './componentes/mesas/mesas.component';
+
+//para las tabs animadas
+import {MatTabsModule} from '@angular/material';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
+import { PrincipalComponent } from './componentes/principal/principal.component';
+import { SobreNosotrosComponent } from './componentes/sobre-nosotros/sobre-nosotros.component';
+import { PedidosComponent } from './componentes/pedidos/pedidos.component';
+//importo lo de primeng
+import {PickListModule} from 'primeng/picklist';
+import { PedidoNuevoComponent } from './componentes/pedido-nuevo/pedido-nuevo.component';
+import { CartaComponent } from './componentes/carta/carta.component';
+import { MesasDispComponent } from './componentes/mesas-disp/mesas-disp.component';
+import { SociosComponent } from './componentes/socios/socios.component';
+import { PedidoRutaComponent } from './componentes/pedido-ruta/pedido-ruta.component';
+import { CartaSociosComponent } from './componentes/carta-socios/carta-socios.component';
+import { MisPedidosComponent } from './componentes/mis-pedidos/mis-pedidos.component';
+
+import { CookieService } from "ngx-cookie-service";
+import { LeerMasComponent } from './componentes/leer-mas/leer-mas.component';
+import { FacturaComponent } from './componentes/factura/factura.component';
+
+import { NgQrScannerModule } from 'angular2-qrscanner';
+import { PrevioMesasQRComponent } from './componentes/previo-mesas-qr/previo-mesas-qr.component';
+import { PesosPipe } from './pipes/pesos.pipe';
+import { ColorDirective } from './directivas/color.directive';
+import { FotosComponent } from './componentes/fotos/fotos.component';
+import { CambiarFotoComponent } from './componentes/cambiar-foto/cambiar-foto.component';
+import { LogsComponent } from './componentes/logs/logs.component';
+import { GraficoLogsComponent } from './componentes/grafico-logs/grafico-logs.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -21,26 +51,42 @@ import { RecaptchaModule } from 'ng-recaptcha';
     LoginComponent,
     RegistroComponent,
     HomeComponent,
-    MesaListadoComponent
+    MesasComponent,
+    UsuariosComponent,
+    PrincipalComponent,
+    SobreNosotrosComponent,
+    PedidosComponent,
+    PedidoNuevoComponent,
+    CartaComponent,
+    MesasDispComponent,
+    SociosComponent,
+    PedidoRutaComponent,
+    CartaSociosComponent,
+    MisPedidosComponent,
+    LeerMasComponent,
+    FacturaComponent,
+    PrevioMesasQRComponent,
+    PesosPipe,
+    ColorDirective,
+    FotosComponent,
+    CambiarFotoComponent,
+    LogsComponent,
+    GraficoLogsComponent
   ],
   imports: [
-    RecaptchaModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp({
-      apiKey: "AIzaSyCrjQ8yG4VxHW5Ac5plg4e9vuHSSCatMzs",
-      authDomain: "lacomanda-81155.firebaseapp.com",
-      databaseURL: "https://lacomanda-81155.firebaseio.com",
-      projectId: "lacomanda-81155",
-      storageBucket: "lacomanda-81155.appspot.com",
-      messagingSenderId: "1014100247612",
-      appId: "1:1014100247612:web:01a4e0e099a1707a822f39",
-      measurementId: "G-NLFM829T76"
-    }),
-    AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    NgbModule,
+    RecaptchaModule.forRoot(),
+    MatTabsModule,
+    BrowserAnimationsModule,
+    PickListModule,
+    NgQrScannerModule,
+    ChartsModule
   ],
-  providers: [AngularFirestore],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

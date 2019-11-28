@@ -1,0 +1,56 @@
+<div id="ppal">
+
+<h1>Mesas</h1>
+<br>
+
+<button type="button" class="btn btn-primary" (click)="MostrarMesas()">Mostrar Mesas</button>
+
+<button type="button" class="btn btn-primary" (click)="MostraragregarMesa()">Agregar Mesa</button>
+
+<br>
+
+<div style="display: none;" id="divAgregarMesa">
+  <label for="">Codigo de mesa<input type="text" name="" id="" [(ngModel)]="codigo"></label>
+
+  <label for="">Estado: 
+    <select name="" id="seleccionado" [(ngModel)]="estado">
+      <option value="{{est}}" *ngFor="let est of estadoMesas">{{est}}</option>
+    </select>
+  </label>
+  <button (click)="agregarMesa()">Agregar!</button>
+</div>
+<br>
+
+<table class="table table-dark" id="tabla" style="display: none;">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Codigo</th>
+        <th>Modificar</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mesa of mesas" appColor={{mesa.estado}}>
+          <td>{{mesa.id}}</td>
+          <td>{{mesa.estado}}</td>
+          <td>{{mesa.codigo}}</td>
+          <td><button (click)="mostrarDiv(mesa.codigo)" disabled="true" class="btnModificar">Modificar</button></td>
+        </tr>
+       
+    </tbody>
+  </table>
+
+  <div style="display: none;" id="div">
+    <label for="">Estado: 
+      <select name="" id="seleccionado" [(ngModel)]="estado">
+        <option value="{{est}}" *ngFor="let est of estadoMesas">{{est}}</option>
+      </select>
+    </label>
+
+    <button (click)="modificarMesa()">Modifica</button>
+  </div>
+
+
+</div>

@@ -1,0 +1,27 @@
+<div>
+    <h1 align="center">Seguir Pedido</h1>
+
+    <div align="center" id="muestro">
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Codigo de Pedido:</span>
+            </div>
+            <input type="text" class="form-control" [(ngModel)]="codigoPedido">
+        </div>
+       
+        <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Codigo de Mesa:</span>
+                </div>
+                <input type="text" class="form-control" [(ngModel)]="codigoMesa">
+            </div>
+           
+        <button (click)="buscarPedido()" type="button" class="btn btn-primary">Seguir!</button>
+
+    </div>
+
+    <div id="datos">
+        <p *ngIf="this.respuesta != null">{{this.respuesta.respuesta}}</p>
+    </div>
+</div>

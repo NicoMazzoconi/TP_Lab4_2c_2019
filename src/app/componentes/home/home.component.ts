@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../servicios/auth.service';
+import { LogeoService } from 'src/app/servicios/logeo.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,12 +9,45 @@ import { AuthService } from '../../servicios/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private AFauth: AuthService) { }
+  public nombreingresado;
 
-  ngOnInit() {
+  public tipo;
+  //////////////////-----------------------------------------
+
+
+
+  //-----------------------------------------------------
+  constructor(public miServ:LogeoService, public router:Router) { 
+    
   }
 
-  desconectarse(){
-    this.AFauth.logOut();
+  ngOnInit() {
+    
+    this.nombreingresado = localStorage.getItem("nombreingresado");
+    //console.log(this.nombreingresado);
+    this.tipo = localStorage.getItem("tipo");
+
+    
+    
+    
+  }
+
+  hacer()
+  {
+    let tipo = localStorage.getItem("tipo");
+    if(tipo == "cliente")
+    {
+      alert("no podes entrar, solo socios");
+      this.router.navigate(['home/ppal']);
+      //let appUsuarios = document.getElementById("usuarios");
+      //appUsuarios.style.display = "none";
+    }
+  }
+
+
+  salir()
+  {
+    this.router.navigate(["login"]);
+    localStorage.clear();
   }
 }

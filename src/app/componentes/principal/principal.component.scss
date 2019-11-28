@@ -1,0 +1,110 @@
+.card
+{
+    float: left;
+    margin-left: 8%;
+    margin-bottom: 2%;
+}
+
+#loPpal
+{
+    
+    background-color: lightblue;
+    padding-bottom: 70%;
+}
+
+h4
+{
+    text-align: center;
+    width: 50%;
+    border: 3px blue solid;
+    
+}
+
+#titulo
+{
+    padding-left: 32%;
+}
+
+#fotoMala
+{
+    height: 50%;
+}
+
+@media only screen and (max-width: 1250px) {
+
+    #loPpal
+    {
+        padding-bottom: 110%;
+    }
+  }
+
+@media only screen and (max-width: 1000px) {
+
+    #loPpal
+    {
+        padding-bottom: 150%;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+
+    #loPpal
+    {
+        padding-bottom: 170%;
+    }
+  }
+
+
+@media only screen and (max-width: 685px) {
+
+    #loPpal
+    {
+        padding-bottom: 450%;
+    }
+  }
+
+
+@media only screen and (max-width: 450px) {
+
+    #loPpal
+    {
+        padding-bottom: 600%;
+    }
+  }
+
+
+
+//cartel coockies
+#overbox3 {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 999999;
+    display: block;
+    height: 60px;
+}
+#infobox3 {
+    margin: auto;
+    //position: relative;
+    top: 0px;
+    height: 58px;
+    width: 100%;
+    text-align:center;
+    background-color: #eeeeee;
+}
+#infobox3 p {
+    line-height:58px;
+    font-size:12px;
+    text-align:center;
+}
+#infobox3 p a {
+    margin-right:5px;
+    text-decoration: underline;
+}
+
+#foto{
+    position: relative;
+    width:60%; height:20%;
+    left: 20%;
+}

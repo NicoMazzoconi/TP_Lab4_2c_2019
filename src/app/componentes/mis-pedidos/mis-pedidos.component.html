@@ -1,0 +1,13 @@
+<h1 align="center">Mis pedidos</h1>
+
+
+<div *ngFor="let pedido of arrayPedidos">
+    <p align="center"> Nombre: {{pedido.nombre}} --
+     Precio: {{pedido.precio}} -- 
+     De La Mesa: {{pedido.codigoMesa}} -- 
+     Codigo del Pedido: {{pedido.codigoPedido}}</p>
+</div>
+
+<div *ngIf="arrayPedidos == null">
+    <p align="center">No ha realizado ningun pedido aun</p>
+</div>

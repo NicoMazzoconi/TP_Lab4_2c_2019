@@ -1,0 +1,58 @@
+
+<h3>Lista de Pedidos</h3>
+<br>
+<br>
+
+<table class="table table-dark" id="tabla" >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Codigo</th>
+        <th scope="col">Tiempo Estimado</th>
+        <th scope="col">Mesa</th>
+        <th scope="col">Pedido</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Modificar</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pedido of pedidos">
+          <td>{{pedido.id}}</td>
+          <td>{{pedido.estado}}</td>
+          <td>{{pedido.codigoPedido}}</td>
+          <td>{{pedido.tiempo}}</td>
+          <td>{{pedido.idMesa}}</td>
+          <td>{{pedido.quePidio}}</td>
+          <td>{{pedido.tipo}}</td>
+          <td>{{pedido.precio}}</td>
+          <td><button (click)="abrirDiv(pedido)" class="btnModificar">Modificar</button></td>
+        </tr>
+       
+    </tbody>
+  </table>
+
+  <div style="display: none;" id="divModifica">
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Estado:</label>
+      <select multiple class="form-control" id="select" [(ngModel)]="estado">
+        <option value="pendiente">pendiente</option>
+        <option value="en preparacion">en preparacion</option>
+        <option value="listo para servir">listo para servir</option>
+        <option value="entregado">entregado</option>
+        <option value="finalizado">finalizado</option>
+
+      </select>
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Tiempo estimado</div>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="tiempoEstimado" placeholder="ingrese el tiempo estimado">
+    </div>
+
+    <button (click)="modificarpedido()">Listo</button>
+  </div>

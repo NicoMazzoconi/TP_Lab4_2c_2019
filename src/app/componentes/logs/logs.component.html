@@ -1,0 +1,75 @@
+<p>Aca estan los logs</p>
+<div>
+<button (click)='verLogins(loginsVer)'>Ver logs logins</button>
+<div class='divs' *ngIf='loginsVer'>
+    <h3>Logs de Login:</h3>
+    <br>
+    <table id="tabla" >
+        <thead>
+          <tr>
+            <th scope="col">Cuenta</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Tipo</th>
+           
+    
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let log of logsLogin">
+              <td>{{log.Account}}</td>
+              <td>{{log.Fecha.date}}</td>
+              <td>{{log.Tipo}}</td>
+            </tr>
+           
+        </tbody>
+      </table>
+   
+</div>
+</div>
+<div>
+<button (click)='verOperaciones(operacionesVer)'>Ver logs operaciones</button>
+<div class='divs' *ngIf='operacionesVer'>
+ <h3>Logs de Operaciones:</h3>
+    <br>
+    <table id="tabla" >
+        <thead>
+          <tr>
+            <th scope="col">Cuenta</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Metodo</th>
+            <th scope="col">Tipo</th>
+           
+    
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let log of operaciones">
+              <td>{{log.Account}}</td>
+              <td>{{log.Fecha.date}}</td>
+              <td>{{log.Metodo}}</td>
+              <td>{{log.Tipo}}</td>
+            </tr>
+           
+        </tbody>
+      </table>
+
+
+</div>
+</div>
+
+<div>
+<button (click)='verGrafico(graficoVer)'>Ver graficos</button>
+<div class='divs'  *ngIf='graficoVer'>
+    <app-grafico-logs></app-grafico-logs>
+</div>
+</div>
+
+<div>
+<button (click)='verId(idVer)'>Ver logs de un id</button>
+<div class='divs'  *ngIf='idVer'>
+    <h3>Logs De un Id especifico:</h3>
+    <input type="text" [(ngModel)]="idRecibido">
+    <button (click)="logXId()">Buscar</button>
+</div>
+</div>
+
