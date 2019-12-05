@@ -20,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pedido of pedidos">
+      <tr *ngFor="let pedido of pedidos" appColorPedido={{pedido.estado}}>
           <td>{{pedido.id}}</td>
           <td>{{pedido.estado}}</td>
           <td>{{pedido.codigoPedido}}</td>
