@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let encuesta of encuestas">
+      <tr *ngFor="let encuesta of encuestas" appEncuesta={{encuesta}}>
           <td>{{encuesta.id}}</td>
           <td>{{encuesta.puntuacionMesa}}</td>
           <td>{{encuesta.codigoMesa}}</td>
