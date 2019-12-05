@@ -21,6 +21,7 @@ import { PrevioMesasQRComponent } from './componentes/previo-mesas-qr/previo-mes
 import { FotosComponent } from './componentes/fotos/fotos.component';
 import { CambiarFotoComponent } from './componentes/cambiar-foto/cambiar-foto.component';
 import { LogsComponent } from './componentes/logs/logs.component';
+import { EncuestasComponent } from './componentes/encuestas/encuestas.component';
 
 
 const routes: Routes = [
@@ -49,7 +50,8 @@ const routes: Routes = [
               {path: 'mesas' , component: MesasComponent},
               {path: 'menu' , component: CartaSociosComponent},
               {path: 'factura' , component: FacturaComponent},
-              {path: 'logs', component: LogsComponent}
+              {path: 'logs', component: LogsComponent},
+              {path: 'encuestas', component: EncuestasComponent}
             ]
           },
 

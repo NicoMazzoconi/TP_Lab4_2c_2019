@@ -12,8 +12,7 @@ import { stringify } from '@angular/compiler/src/util';
 })
 export class PedidosComponent implements OnInit {
 
-  public pedidos:any;
-  public quePidio:any;
+  public pedidos = [];
 
   public pedidoAModificar:any;
   public tiempoEstimado:any;
@@ -26,20 +25,39 @@ export class PedidosComponent implements OnInit {
   list2: any[];
   
   ngOnInit() {
+      this.pedidos = [];
       let token = localStorage.getItem("token");
       this.logServ.traerPedidos(token).subscribe(res=>
         {
-          //console.log(res);
-          this.pedidos = res.respuesta;
-          this.quePidio = res.respuesta[0].quePidio;
-          //this.quePidio = JSON.stringify(this.quePidio);
-          console.log(this.quePidio);
+          let auxPedidos = res.respuesta;
+          auxPedidos.forEach(element => {
+            if(localStorage.getItem('tipo') == 'socio')
+            {
+              this.pedidos = auxPedidos;
+            }
+            else {
+              if(localStorage.getItem('tipo') == 'mozo' && (element.estado == 'listo para servir' || element.estado == 'entregado'))
+              {
+                this.pedidos.push(element);
+              }
+              if(localStorage.getItem('tipo') == 'cocinero' && (element.tipo == 'cocina' || element.tipo == 'postre') && (element.estado == 'pendiente' || element.estado == 'en preparacion'))
+              {
+                this.pedidos.push(element);
+              }
+              if(localStorage.getItem('tipo') == 'bartender' && element.tipo == 'bar' && (element.estado == 'pendiente' || element.estado == 'en preparacion'))
+              {
+                this.pedidos.push(element);
+              }
+              if(localStorage.getItem('tipo') == 'cervecero' && element.tipo == 'cerveza' && (element.estado == 'pendiente' || element.estado == 'en preparacion'))
+              {
+                this.pedidos.push(element);
+              }
+            }
+          });
         },
         err=>
         {
-          console.log(err);
           alert(err.error.respuesta);
-          this.router.navigate(['home/ppal']);
         })
   }
 
@@ -52,8 +70,15 @@ export class PedidosComponent implements OnInit {
   abrirDiv(pedido:any)
   {
     this.pedidoAModificar = pedido;
-    let div = document.getElementById("divModifica");
-    div.style.display = "block";
+    if(pedido.estado == 'pendiente')
+    {
+      let div = document.getElementById("divModifica");
+      div.style.display = "block";
+    }else
+    {
+      this.tiempoEstimado = 0;
+      this.modificarpedido();
+    }
   }
   modificarpedido()
   {
@@ -61,15 +86,39 @@ export class PedidosComponent implements OnInit {
 
     let pedido = this.pedidoAModificar;
 
-    
-    let estado =  this.estado + "";
-     //console.log(estado);
+    let estadoNuevo;
+    switch(pedido.estado)
+    {
+      case "pendiente":
+        estadoNuevo='en preparacion';
+      break;
+      case "en preparacion":
+        estadoNuevo='listo para servir';
+      break;
+      case "listo para servir":
+        estadoNuevo='entregado';
+      break;
+      case "entregado":
+        estadoNuevo='finalizado';
+      break;
+      case "finalizado":
+        estadoNuevo='listo';
+      break;
+    }
 
-    //console.log(pedido);
-    this.logServ.modificarPedidoSinCambios(pedido.codigoPedido,token,estado,this.tiempoEstimado,pedido.tipo)
-    .subscribe(res=>{
-      alert(res.respuesta);
-      this.ngOnInit();
-    });
+    if(estadoNuevo == 'listo')
+    {
+      alert("Ese pedido no se puede modificar")
+    }
+    else{
+      
+      this.logServ.modificarPedidoSinCambios(pedido.codigoPedido,token,estadoNuevo,this.tiempoEstimado,pedido.tipo)
+      .subscribe(res=>{
+        alert(res.respuesta);
+        let div = document.getElementById("divModifica");
+        div.style.display = "none";
+        this.ngOnInit();
+      });
+    }
   }
 }

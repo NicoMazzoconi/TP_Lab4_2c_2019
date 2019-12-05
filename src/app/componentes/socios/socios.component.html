@@ -1,11 +1,12 @@
 <nav class="navbar navbar-light bg-light">
     <form class="form-inline">
       <button class="btn btn-outline-success" type="button" routerLink="pedidos">Pedidos</button>
-      <button class="btn btn-outline-success" type="button" routerLink="traerUsuarios">Usuarios</button>
-      <button class="btn btn-outline-success" type="button" routerLink="mesas">Mesas</button>
-      <button class="btn btn-outline-success" type="button" routerLink="menu">Menu</button>
-      <button class="btn btn-outline-success" type="button" routerLink="factura">Facturacion</button>
-      <button class="btn btn-outline-success" type="button" routerLink="logs">Logs</button>
+      <button class="btn btn-outline-success" type="button" routerLink="traerUsuarios" *ngIf='tipo=="socio"'>Usuarios</button>
+      <button class="btn btn-outline-success" type="button" routerLink="mesas" *ngIf='tipo=="socio"'>Mesas</button>
+      <button class="btn btn-outline-success" type="button" routerLink="menu" *ngIf='tipo=="socio"'>Menu</button>
+      <button class="btn btn-outline-success" type="button" routerLink="factura" *ngIf='tipo=="socio"'>Facturacion</button>
+      <button class="btn btn-outline-success" type="button" routerLink="logs" *ngIf='tipo=="socio"'>Logs</button>
+      <button class="btn btn-outline-success" type="button" routerLink="encuestas" *ngIf='tipo=="socio"'>Encuestas</button>
     </form>
   </nav>
     

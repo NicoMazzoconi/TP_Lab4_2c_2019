@@ -93,7 +93,7 @@ export class LogeoService {
     
   }
 
-  agregarPedido(codigo:string,idMesa:string,tipoPedido:string,quePidio:string,precio:string,token:string):Observable<any>
+  agregarPedido(codigo:string,idMesa:string,tipoPedido:string,quePidio:string,precio:string,token:string,id:string):Observable<any>
   {
     const myheader = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     //myheader.set('Content-Type', 'application/x-www-form-urlencoded');
@@ -103,7 +103,7 @@ export class LogeoService {
     body = body.set('tipoPedido', tipoPedido);
     body = body.set('quePidio', quePidio);
     body = body.set('precio', precio);
-
+    body = body.set('id', id);
     body = body.set('token', token);
 
     
@@ -241,4 +241,27 @@ export class LogeoService {
     return this.http.post('https://lacomandanicomazzoconi.000webhostapp.com/public/logs/OperacionesPorPersona/', body,{headers:myheader}).pipe(res => res);
 
   }
+
+  hacerEncuesta(token,puntuacionMesa,codigoMesa,puntuacionRestaurante,puntuacionMozo,puntuacionCocinero,comentario,idPedido){
+    const myheader = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+
+    let body = new HttpParams();
+    body = body.set('puntuacionMesa', puntuacionMesa);
+    body = body.set('codigoMesa', codigoMesa);
+    body = body.set('puntuacionRestaurante', puntuacionRestaurante);
+    body = body.set('puntuacionMozo', puntuacionMozo);
+    body = body.set('puntuacionCocinero', puntuacionCocinero);
+    body = body.set('comentario', comentario);
+    body = body.set('token', token);
+    body = body.set('idPedido', idPedido);
+
+    return this.http.post('https://lacomandanicomazzoconi.000webhostapp.com/public/encuesta/', body,{headers:myheader}).pipe(res => res);
+
+  }
+
+  traerEncuesta(){
+    const myheader = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.get('https://lacomandanicomazzoconi.000webhostapp.com/public/encuesta/',{headers:myheader}).pipe(res => res);
+  }
+
 }

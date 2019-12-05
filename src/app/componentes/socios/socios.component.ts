@@ -8,7 +8,10 @@ import {  Router } from '@angular/router';
 })
 export class SociosComponent implements OnInit {
 
-  constructor(public router:Router) { }
+  tipo;
+  constructor(public router:Router) { 
+    this.tipo = localStorage.getItem('tipo');
+  }
 
   ngOnInit() {
   }

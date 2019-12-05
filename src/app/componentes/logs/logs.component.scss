@@ -1,5 +1,59 @@
 .divs
 {
-    float: left;
-    border: 2px solid black;
+    margin-top: 20px; 
+    height: 200px; 
+    overflow: auto;
+}
+
+
+#principal{
+    width:100%;
+    height:100%;
+}
+
+#uno{
+    width:50%;
+    float:left;
+}
+
+#dos{
+    width:50%;
+    float:right;
+}
+
+#tres{
+    width:50%;
+    float:left;
+}
+
+#cuatro{
+    width:50%;
+    float:right;
+}
+
+form{
+    position: relative;
+    left: 30%;
+}
+
+table{
+    
+    border: black 5px solid;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr{
+    border: black 5px solid;
+    border-collapse: collapse;
+}
+
+td{
+    border: black 5px solid;
+    border-collapse: collapse;
+}
+
+th{
+    border: black 5px solid;
+    border-collapse: collapse;
 }

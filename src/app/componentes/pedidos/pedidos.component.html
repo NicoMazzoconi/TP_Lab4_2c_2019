@@ -29,30 +29,18 @@
           <td>{{pedido.quePidio}}</td>
           <td>{{pedido.tipo}}</td>
           <td>{{pedido.precio}}</td>
-          <td><button (click)="abrirDiv(pedido)" class="btnModificar">Modificar</button></td>
+          <td><button (click)="abrirDiv(pedido)" class="btnModificar">Cambiar estado</button></td>
         </tr>
        
     </tbody>
   </table>
 
-  <div style="display: none;" id="divModifica">
-    <div class="form-group">
-      <label for="exampleFormControlSelect2">Estado:</label>
-      <select multiple class="form-control" id="select" [(ngModel)]="estado">
-        <option value="pendiente">pendiente</option>
-        <option value="en preparacion">en preparacion</option>
-        <option value="listo para servir">listo para servir</option>
-        <option value="entregado">entregado</option>
-        <option value="finalizado">finalizado</option>
-
-      </select>
-    </div>
+  <div style="display: none;" id="divModifica" >
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text">Tiempo estimado</div>
       </div>
       <input type="text" class="form-control" [(ngModel)]="tiempoEstimado" placeholder="ingrese el tiempo estimado">
     </div>
-
     <button (click)="modificarpedido()">Listo</button>
   </div>

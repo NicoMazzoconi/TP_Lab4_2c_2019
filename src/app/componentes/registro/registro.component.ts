@@ -29,7 +29,7 @@ export class RegistroComponent implements OnInit {
     {
       alert("el nombre de usuario debe tener mas de 3 digitos");
     }
-    else if(this.passUsuario == this.passUsuario2)
+    else
     {
       this.regServ.registroCliente(this.nombreUsuario,this.passUsuario).subscribe(res=>
         {
@@ -49,10 +49,7 @@ export class RegistroComponent implements OnInit {
           }
         });
     }
-    else
-    {
-      alert("las contraseñas deben coincidir!");
-    }
+    
 
   }
 

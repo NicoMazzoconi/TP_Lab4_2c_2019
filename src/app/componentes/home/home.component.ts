@@ -22,26 +22,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    
     this.nombreingresado = localStorage.getItem("nombreingresado");
     //console.log(this.nombreingresado);
     this.tipo = localStorage.getItem("tipo");
-
-    
-    
-    
-  }
-
-  hacer()
-  {
-    let tipo = localStorage.getItem("tipo");
-    if(tipo == "cliente")
-    {
-      alert("no podes entrar, solo socios");
-      this.router.navigate(['home/ppal']);
-      //let appUsuarios = document.getElementById("usuarios");
-      //appUsuarios.style.display = "none";
-    }
   }
 
 

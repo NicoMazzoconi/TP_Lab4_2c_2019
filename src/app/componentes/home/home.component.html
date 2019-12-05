@@ -5,15 +5,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" routerLink="ppal">Principal<span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" routerLink="socios" (click)="hacer()" *ngIf='tipo=="socio"'>Panel Empleados</a>
-
+      <a class="nav-item nav-link active" routerLink="ppal" *ngIf='tipo=="cliente"'>Principal<span class="sr-only" >(current)</span></a>
+      <a class="nav-item nav-link active" routerLink="socios"  *ngIf='tipo!="cliente"'>Principal<span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" routerLink="cambiarFoto" id='imgLogo'>Foto de perfil<app-fotos></app-fotos></a>
       <a class="nav-item nav-link"  id="derecho" (click)="salir()" ><i class="fa fa-sign-out" style="font-size:35px"></i>
       </a>
     </div>
   </div>
 </nav>
-
 
 <router-outlet></router-outlet>

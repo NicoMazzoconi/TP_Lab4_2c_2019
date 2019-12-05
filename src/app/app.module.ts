@@ -35,7 +35,6 @@ import { CookieService } from "ngx-cookie-service";
 import { LeerMasComponent } from './componentes/leer-mas/leer-mas.component';
 import { FacturaComponent } from './componentes/factura/factura.component';
 
-import { NgQrScannerModule } from 'angular2-qrscanner';
 import { PrevioMesasQRComponent } from './componentes/previo-mesas-qr/previo-mesas-qr.component';
 import { PesosPipe } from './pipes/pesos.pipe';
 import { ColorDirective } from './directivas/color.directive';
@@ -44,6 +43,11 @@ import { CambiarFotoComponent } from './componentes/cambiar-foto/cambiar-foto.co
 import { LogsComponent } from './componentes/logs/logs.component';
 import { GraficoLogsComponent } from './componentes/grafico-logs/grafico-logs.component';
 import { ChartsModule } from 'ng2-charts';
+import { EncuestasComponent } from './componentes/encuestas/encuestas.component';
+import { NombreMayusculasPipe } from './pipes/nombre-mayusculas.pipe';
+import { PrimeraLetraMayusculaPipe } from './pipes/primera-letra-mayuscula.pipe';
+import { ColorPedidoDirective } from './directivas/color-pedido.directive';
+import { EncuestaDirective } from './directivas/encuesta.directive';
 
 @NgModule({
   declarations: [
@@ -71,7 +75,12 @@ import { ChartsModule } from 'ng2-charts';
     FotosComponent,
     CambiarFotoComponent,
     LogsComponent,
-    GraficoLogsComponent
+    GraficoLogsComponent,
+    EncuestasComponent,
+    NombreMayusculasPipe,
+    PrimeraLetraMayusculaPipe,
+    ColorPedidoDirective,
+    EncuestaDirective
   ],
   imports: [
     BrowserModule,
@@ -83,7 +92,6 @@ import { ChartsModule } from 'ng2-charts';
     MatTabsModule,
     BrowserAnimationsModule,
     PickListModule,
-    NgQrScannerModule,
     ChartsModule
   ],
   providers: [CookieService],

@@ -7,11 +7,11 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./principal.component.scss']
 })
 export class PrincipalComponent implements OnInit {
-
   constructor(private cockyServ:CookieService) { }
 
   ngOnInit() {
     this.verificarMostrarCockies();
+    
   }
 
   aceptar_cookies()

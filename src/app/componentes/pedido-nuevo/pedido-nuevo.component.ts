@@ -101,18 +101,13 @@ export class PedidoNuevoComponent implements OnInit {
 
       pedidos.forEach(pedido => {
         let codigoPedido = this.makeid(5);
-        this.logServ.agregarPedido(codigoPedido,this.idMesa,pedido.tipo,pedido.nombre,pedido.precio,token)
+        this.logServ.agregarPedido(codigoPedido,this.idMesa,pedido.tipo,pedido.nombre,pedido.precio,token,localStorage.getItem('idUsuario'))
         .subscribe(res=>{
           this.respuesta = res;
           codigosPedidos = codigosPedidos + ', ' + codigoPedido;
           this.mensaje = "sus codigos de pedidos es: " + codigosPedidos;
-          
-          pedidoParaGuardarLocal = {"codigoPedido":codigoPedido,"codigoMesa":this.idMesa,
-          "nombre":pedido.nombre,"precio":pedido.precio};
-
-          pedidosAGuardar.push(pedidoParaGuardarLocal);
-          localStorage.setItem("pedidos",JSON.stringify(pedidosAGuardar));
-
+          let div = document.getElementById("divFinal");
+          div.style.display = "none";
         },
         err=>{
           console.log(err);

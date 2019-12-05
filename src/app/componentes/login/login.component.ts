@@ -35,13 +35,18 @@ export class LoginComponent implements OnInit {
         else
         {
           localStorage.setItem("token",this.respuesta.token);
-          console.log(this.respuesta.usuario.tipo);
           localStorage.setItem("nombreingresado", this.respuesta.usuario.nombre);
           localStorage.setItem("tipo", this.respuesta.usuario.tipo);
           localStorage.setItem("idUsuario", this.respuesta.usuario.id);
           localStorage.setItem("foto", this.respuesta.usuario.urlFoto);
-          console.log(this.respuesta.usuario);
-          this.router.navigate(['home/ppal'])
+          if(this.respuesta.tipo == 'cliente')
+          {
+            this.router.navigate(['home/ppal']);
+          }
+          else
+          {
+            this.router.navigate(['home/socios']);
+          }
         }
       });
   }
@@ -83,6 +88,11 @@ export class LoginComponent implements OnInit {
       
       case 'bartender':
         this.nombreUsuario = "bartender1";
+        this.passUsuario = "aassdd";
+        break;
+
+        case 'cervecero':
+        this.nombreUsuario = "cervecero1";
         this.passUsuario = "aassdd";
         break;
 
