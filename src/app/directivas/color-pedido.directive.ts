@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
   selector: '[appColorPedido]'
@@ -11,7 +11,7 @@ export class ColorPedidoDirective {
 
   ngOnInit()
   {
-    if(this.appColor == "finalizado")
+    if(this.appColorPedido    == "finalizado")
     {
       this.element.nativeElement.style.backgroundColor = "red";
     }
@@ -20,4 +20,6 @@ export class ColorPedidoDirective {
       this.element.nativeElement.style.backgroundColor = "green";
 
     }
+  }
+    
   }
